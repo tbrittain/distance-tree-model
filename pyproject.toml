@@ -6,6 +6,7 @@ authors = ["tbrittain <treybrittain@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
+SQLAlchemy = "^1.4.31"
 
 [tool.poetry.dev-dependencies]
 
