@@ -11,6 +11,7 @@ class Location(object):
         self._id = uuid4()
         self.latitude = latitude
         self.longitude = longitude
+        self.coords = (self.latitude, self.longitude)
         self.name = name
 
     @staticmethod
@@ -62,6 +63,15 @@ class Location(object):
         return f"{formatted_name}: {self.decimal_to_dms(self.latitude, True)}" \
                f"{self.decimal_to_dms(self.longitude, False)} "
 
+    def __repr__(self):
+        return f"Location({self.latitude}, {self.longitude}, {self.name})"
+
+    def __len__(self):
+        return len(self.coords)
+
+    def __getitem__(self, i):
+        return self.coords[i]
+
 
 # Some constants of latitude and longitude
 # https://www.latlong.net/convert-address-to-lat-long.html
@@ -75,4 +85,12 @@ seventh = Location(29.705797, -95.459272)
 
 locations = [first, second, third, fourth, fifth, sixth, seventh]
 
-# tree = kdtree.create(dimensions=2)
+tree = kdtree.create(locations, dimensions=2)
+
+city_hall = Location(29.760163, -95.369356, "City Hall")
+closest_node = tree.search_nn(city_hall)
+print(f"Closest node to {city_hall} is {closest_node[0]}")
+
+local_foods_by_moonshiners = Location(29.761040, -95.362050, "Local Foods by Moonshiners")
+closest_node = tree.search_nn(local_foods_by_moonshiners)
+print(f"Closest node to {local_foods_by_moonshiners} is {closest_node[0]}")
