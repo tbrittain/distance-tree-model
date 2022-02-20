@@ -1,3 +1,4 @@
+import math
 import kdtree
 from uuid import uuid4
 
@@ -51,6 +52,37 @@ class Location(object):
 
         return Location(lat, long)
 
+    @staticmethod
+    def distance(location1: "Location", location2: "Location", metric=False) -> float:
+        """
+        Calculates the distance between two locations using the Haversine formula.
+
+        :param location1: The first location.
+        :param location2: The second location.
+        :param metric: Whether to return the distance in kilometers or miles.
+        :return: The distance between the two locations.
+        """
+
+        earth_radius = 6371  # km
+        diff_lat = math.radians(location1.latitude - location2.latitude)
+        diff_long = math.radians(location1.longitude - location2.longitude)
+
+        a = math.sin(diff_lat / 2) * math.sin(diff_lat / 2) + \
+            math.cos(math.radians(location1.latitude)) * math.cos(math.radians(location2.latitude)) * \
+            math.sin(diff_long / 2) * math.sin(diff_long / 2)
+
+        c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
+
+        distance_km = earth_radius * c
+        if metric:
+            return distance_km
+        else:
+            return distance_km * 0.621371
+
+    @staticmethod
+    def _degrees_to_radians(degrees: float) -> float:
+        return degrees * (math.pi / 180)
+
     def __eq__(self, other):
         return self.latitude == other.latitude and self.longitude == other.longitude
 
@@ -94,3 +126,6 @@ print(f"Closest node to {city_hall} is {closest_node[0]}")
 local_foods_by_moonshiners = Location(29.761040, -95.362050, "Local Foods by Moonshiners")
 closest_node = tree.search_nn(local_foods_by_moonshiners)
 print(f"Closest node to {local_foods_by_moonshiners} is {closest_node[0]}")
+
+print(f"Distance between {first} and {second} is {round(Location.distance(first, second), 2)} miles")
+print(f"Distance between {first} and {second} is {round(Location.distance(first, second, True), 2)}km")
