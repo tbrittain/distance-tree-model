@@ -5,6 +5,7 @@ from .location import Location
 sql_engine = create_engine('sqlite:///database.sqlite', echo=True)
 
 
+# TODO: look into sessions
 def create_database():
     metadata = MetaData()
     Table('locations', metadata,
@@ -31,4 +32,3 @@ def get_locations() -> list:
     with sql_engine.connect() as connection:
         result = connection.execute('SELECT * FROM locations')
         return [Location(location_id=row[0], name=row[1], latitude=row[2], longitude=row[3]) for row in result]
-
