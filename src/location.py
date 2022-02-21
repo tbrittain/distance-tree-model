@@ -1,5 +1,4 @@
 import math
-import kdtree
 from uuid import uuid4
 
 
@@ -8,8 +7,8 @@ class Location(object):
     A location in the world using latitude and longitude.
     """
 
-    def __init__(self, latitude: float, longitude: float, name: str = None):
-        self._id = uuid4()
+    def __init__(self, location_id, latitude: float, longitude: float, name: str = None):
+        self.location_id = location_id if location_id else str(uuid4())
         self.latitude = latitude
         self.longitude = longitude
         self.coords = (self.latitude, self.longitude)
@@ -33,6 +32,7 @@ class Location(object):
     def from_string(string: str) -> "Location":
         """
         Creates a Location object from a DMS string.
+        :param string: The DMS string in the format such as "40° 39' 51" N, 73° 56' 19" W"
         """
 
         string = string.replace(" ", "")
@@ -50,7 +50,7 @@ class Location(object):
         if lat_long[1][3] == "W":
             long *= -1
 
-        return Location(lat, long)
+        return Location(None, lat, long)
 
     @staticmethod
     def distance(location1: "Location", location2: "Location", metric=False) -> float:
@@ -103,29 +103,3 @@ class Location(object):
 
     def __getitem__(self, i):
         return self.coords[i]
-
-
-# Some constants of latitude and longitude
-# https://www.latlong.net/convert-address-to-lat-long.html
-first = Location(29.759776, -95.367863, "Tranquility Park")
-second = Location(29.760744, -95.361919, "The Moonshiners Southern Table and Bar")
-third = Location(29.755845, -95.359451, "Parking lots on Rusk near the Marriott")
-fourth = Location(29.752026, -95.371339, "Close to that abandoned building downtown")
-fifth = Location(29.745580, -95.374085, "Midtown Cadillac dealership")
-sixth = Location(29.738463, -95.380802, "The Breakfast Klub near 59")
-seventh = Location(29.705797, -95.459272)
-
-locations = [first, second, third, fourth, fifth, sixth, seventh]
-
-tree = kdtree.create(locations, dimensions=2)
-
-city_hall = Location(29.760163, -95.369356, "City Hall")
-closest_node = tree.search_nn(city_hall)
-print(f"Closest node to {city_hall} is {closest_node[0]}")
-
-local_foods_by_moonshiners = Location(29.761040, -95.362050, "Local Foods by Moonshiners")
-closest_node = tree.search_nn(local_foods_by_moonshiners)
-print(f"Closest node to {local_foods_by_moonshiners} is {closest_node[0]}")
-
-print(f"Distance between {first} and {second} is {round(Location.distance(first, second), 2)} miles")
-print(f"Distance between {first} and {second} is {round(Location.distance(first, second, True), 2)}km")

@@ -1,16 +1,21 @@
-# This is a sample Python script.
+import kdtree
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+from src.database import insert_location, create_database, get_locations
+from src.location import Location
 
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    create_database()
+    # Some constants of latitude and longitude
+    # https://www.latlong.net/convert-address-to-lat-long.html
+    locations = get_locations()
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    tree = kdtree.create(locations, dimensions=2)
+
+    city_hall = Location(None, 29.760163, -95.369356, "City Hall")
+    closest_node = tree.search_nn(city_hall)
+    print(f"Closest node to {city_hall} is {closest_node[0]}")
+
+    # TODO: Google Geocoding API
+    # https://developers.google.com/maps/documentation/geocoding/overview
+
+
