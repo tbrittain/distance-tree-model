@@ -46,7 +46,7 @@ def geocode_coords(**kwargs):
     :param postalcode: postal code
     """
     resp = geocode(**kwargs)
-    return resp["lat"], resp["lon"]
+    return float(resp["lat"]), float(resp["lon"])
 
 
 if __name__ == '__main__':
