@@ -8,6 +8,7 @@ authors = ["tbrittain <treybrittain@gmail.com>"]
 python = "^3.9"
 SQLAlchemy = "^1.4.31"
 kdtree = "^0.16"
+requests = "^2.27.1"
 
 [tool.poetry.dev-dependencies]
 
