@@ -27,11 +27,15 @@ def geocode(**kwargs):
         params["q"] = kwargs["q"]
     else:
         for key, value in kwargs.items():
-            params[key] = value
+            if value:
+                params[key] = value
 
     resp = requests.get(url=BASE_URL, params=params, headers=HEADERS)
     resp.raise_for_status()
-    return resp.json()[0]
+    if resp.json():
+        return resp.json()[0]
+    else:
+        return None
 
 
 def geocode_coords(**kwargs):

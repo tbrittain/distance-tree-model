@@ -37,4 +37,14 @@ def get_locations() -> list:
 def get_location_by_id(location_id: str) -> Location:
     with sql_engine.connect() as connection:
         result = connection.execute('SELECT * FROM locations WHERE id = ?', location_id).fetchone()
-        return Location(location_id=result[0], name=result[1], latitude=result[2], longitude=result[3])
+        if result is not None:
+            return Location(location_id=result[0], name=result[1], latitude=result[2], longitude=result[3])
+        else:
+            return None
+
+
+def delete_location_by_id(location_id: str) -> bool:
+    with sql_engine.connect() as connection:
+        execution_result = connection.execute('DELETE FROM locations WHERE id = ?', location_id)
+
+    return execution_result.rowcount > 0
