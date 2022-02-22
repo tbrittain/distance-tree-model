@@ -32,3 +32,9 @@ def get_locations() -> list:
     with sql_engine.connect() as connection:
         result = connection.execute('SELECT * FROM locations')
         return [Location(location_id=row[0], name=row[1], latitude=row[2], longitude=row[3]) for row in result]
+
+
+def get_location_by_id(location_id: str) -> Location:
+    with sql_engine.connect() as connection:
+        result = connection.execute('SELECT * FROM locations WHERE id = ?', location_id).fetchone()
+        return Location(location_id=result[0], name=result[1], latitude=result[2], longitude=result[3])

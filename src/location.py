@@ -7,7 +7,7 @@ class Location(object):
     A location in the world using latitude and longitude.
     """
 
-    def __init__(self, location_id, latitude: float, longitude: float, name: str = None):
+    def __init__(self, latitude: float, longitude: float, name: str = None, location_id: str = None):
         self.location_id = location_id if location_id else str(uuid4())
         self.latitude = latitude
         self.longitude = longitude
@@ -50,7 +50,7 @@ class Location(object):
         if lat_long[1][3] == "W":
             long *= -1
 
-        return Location(None, lat, long)
+        return Location(lat, long)
 
     @staticmethod
     def distance(location1: "Location", location2: "Location", metric=False) -> float:
@@ -63,7 +63,7 @@ class Location(object):
         :return: The distance between the two locations.
         """
 
-        earth_radius = 6371  # km
+        earth_radius_km = 6371
         diff_lat = math.radians(location1.latitude - location2.latitude)
         diff_long = math.radians(location1.longitude - location2.longitude)
 
@@ -73,7 +73,7 @@ class Location(object):
 
         c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
 
-        distance_km = earth_radius * c
+        distance_km = earth_radius_km * c
         if metric:
             return distance_km
         else:
@@ -87,7 +87,7 @@ class Location(object):
         return self.latitude == other.latitude and self.longitude == other.longitude
 
     def __hash__(self):
-        return hash((self.latitude, self.longitude))
+        return hash(self.coords)
 
     def __str__(self) -> str:
         formatted_name = self.name if self.name else "An unnamed location"
