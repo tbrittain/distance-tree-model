@@ -1,7 +1,7 @@
 import requests
 
 BASE_URL = "https://nominatim.openstreetmap.org/search"
-HEADERS = {'User-Agent': 'Distance Graph Model +https://github.com/tbrittain'}
+HEADERS = {'User-Agent': 'Distance Tree Model +github.com/tbrittain/distance-tree-model'}
 
 
 def geocode(**kwargs):
