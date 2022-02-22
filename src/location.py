@@ -5,6 +5,7 @@ from uuid import uuid4
 class Location(object):
     """
     A location in the world using latitude and longitude.
+    https://www.latlong.net/convert-address-to-lat-long.html
     """
 
     def __init__(self, latitude: float, longitude: float, name: str = None, location_id: str = None):

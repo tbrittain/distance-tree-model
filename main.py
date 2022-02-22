@@ -155,7 +155,8 @@ def get_k_nearest_neighbors():
                         'lon': neighbor[0].data.longitude,
                         'name': neighbor[0].data.name
                     },
-                    'distance': neighbor[1]
+                    'distance_miles': Location.distance(location, neighbor[0].data),
+                    'distance_euclidean': neighbor[1]
                 } for neighbor in neighbors
             ],
             'search-location': {
