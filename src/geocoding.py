@@ -53,5 +53,13 @@ def geocode_coords(**kwargs):
     return float(resp["lat"]), float(resp["lon"])
 
 
+def get_location_from_geocode(geocode_json):
+    """
+    Get the location name from the geocode response.
+    :param geocode_json: geocode response
+    """
+
+
+
 if __name__ == '__main__':
     print(geocode_coords(q="1600 Pennsylvania Ave NW, Washington, DC 20500"))

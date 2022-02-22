@@ -1,6 +1,5 @@
 import kdtree
 from flask import Flask, jsonify, request
-import json
 
 from src.database import insert_location, create_database, get_locations, get_location_by_id, delete_location_by_id
 from src.geocoding import geocode
@@ -112,9 +111,58 @@ def delete_location(id):
     return jsonify({'success': 'Location deleted'}), 200
 
 
+@app.route('/nearest', methods=['GET'])
+def get_k_nearest_neighbors():
+    global tree
+    q = request.args.get('q', type=str)
+    street = request.args.get('street', type=str)
+    city = request.args.get('city', type=str)
+    state = request.args.get('state', type=str)
+    country = request.args.get('country', type=str)
+    zipcode = request.args.get('zipcode', type=str)
+
+    if not any([q, street, city, state, country, zipcode]):
+        return jsonify({'error': 'No location/query specified'}), 400
+
+    if q:
+        search_result = geocode(q=q)
+    else:
+        search_result = geocode(street=street, city=city, state=state, country=country, zipcode=zipcode)
+
+    if not search_result:
+        return jsonify({'error': 'No location found'}), 400
+
+    name = search_result['display_name']
+    lat = float(search_result['lat'])
+    lon = float(search_result['lon'])
+    location = Location(name=name, latitude=lat, longitude=lon)
+
+    k = request.args.get('k', type=int)
+    if not k:
+        k = 10
+
+    neighbors = tree.search_knn(location, k)
+    if not neighbors:
+        return jsonify({'error': 'No neighbors found'}), 400
+    else:
+        if len(neighbors) == 0:
+            return jsonify({'error': 'No neighbors found'}), 404
+        else:
+            return jsonify({
+                'success': f'Found {len(neighbors)} nearest neighbors',
+                'neighbors': [
+                    {
+                        'location': {
+                            'id': neighbor[0].data.location_id,
+                            'lat': neighbor[0].data.latitude,
+                            'lon': neighbor[0].data.longitude,
+                            'name': neighbor[0].data.name
+                        },
+                        'distance': neighbor[1]
+                    } for neighbor in neighbors
+                ]
+            }), 200
+
+
 if __name__ == '__main__':
     app.run()
-
-    # city_hall = Location(29.760163, -95.369356, "City Hall")
-    # closest_node = tree.search_nn(city_hall)
-    # print(f"Closest node to {city_hall} is {closest_node[0]}")
