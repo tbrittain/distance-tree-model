@@ -143,25 +143,27 @@ def get_k_nearest_neighbors():
 
     neighbors = tree.search_knn(location, k)
     if not neighbors:
-        return jsonify({'error': 'No neighbors found'}), 400
+        return jsonify({'error': 'No neighbors found'}), 404
     else:
-        if len(neighbors) == 0:
-            return jsonify({'error': 'No neighbors found'}), 404
-        else:
-            return jsonify({
-                'success': f'Found {len(neighbors)} nearest neighbors',
-                'neighbors': [
-                    {
-                        'location': {
-                            'id': neighbor[0].data.location_id,
-                            'lat': neighbor[0].data.latitude,
-                            'lon': neighbor[0].data.longitude,
-                            'name': neighbor[0].data.name
-                        },
-                        'distance': neighbor[1]
-                    } for neighbor in neighbors
-                ]
-            }), 200
+        return jsonify({
+            'success': f'Found {len(neighbors)} nearest neighbors',
+            'neighbors': [
+                {
+                    'location': {
+                        'id': neighbor[0].data.location_id,
+                        'lat': neighbor[0].data.latitude,
+                        'lon': neighbor[0].data.longitude,
+                        'name': neighbor[0].data.name
+                    },
+                    'distance': neighbor[1]
+                } for neighbor in neighbors
+            ],
+            'search-location': {
+                'lat': location.latitude,
+                'lon': location.longitude,
+                'name': location.name
+            }
+        }), 200
 
 
 if __name__ == '__main__':

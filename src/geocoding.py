@@ -60,6 +60,5 @@ def get_location_from_geocode(geocode_json):
     """
 
 
-
 if __name__ == '__main__':
     print(geocode_coords(q="1600 Pennsylvania Ave NW, Washington, DC 20500"))
