@@ -1,1 +1,1 @@
-# distance-graph-model
+# distance-tree-model
