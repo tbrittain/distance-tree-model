@@ -51,20 +51,19 @@ def get_single_location(id):
 @app.route('/location', methods=['POST'])
 def add_location():
     global tree
-    q = request.args.get('q', type=str)
+    query = request.args.get('query', type=str)
     street = request.args.get('street', type=str)
     city = request.args.get('city', type=str)
     state = request.args.get('state', type=str)
-    country = request.args.get('country', type=str)
     zipcode = request.args.get('zipcode', type=str)
 
-    if not any([q, street, city, state, country, zipcode]):
+    if not any([query, street, city, state, zipcode]):
         return jsonify({'error': 'No location/query specified'}), 400
 
-    if q:
-        search_result = geocode(q=q)
+    if query:
+        search_result = geocode(query=query)
     else:
-        search_result = geocode(street=street, city=city, state=state, country=country, zipcode=zipcode)
+        search_result = geocode(street=street, city=city, state=state, zipcode=zipcode)
 
     if not search_result:
         return jsonify({'error': 'No location found'}), 400
@@ -114,20 +113,19 @@ def delete_location(id):
 @app.route('/nearest', methods=['GET'])
 def get_k_nearest_neighbors():
     global tree
-    q = request.args.get('q', type=str)
+    query = request.args.get('query', type=str)
     street = request.args.get('street', type=str)
     city = request.args.get('city', type=str)
     state = request.args.get('state', type=str)
-    country = request.args.get('country', type=str)
     zipcode = request.args.get('zipcode', type=str)
 
-    if not any([q, street, city, state, country, zipcode]):
+    if not any([query, street, city, state, zipcode]):
         return jsonify({'error': 'No location/query specified'}), 400
 
-    if q:
-        search_result = geocode(q=q)
+    if query:
+        search_result = geocode(query=query)
     else:
-        search_result = geocode(street=street, city=city, state=state, country=country, zipcode=zipcode)
+        search_result = geocode(street=street, city=city, state=state, zipcode=zipcode)
 
     if not search_result:
         return jsonify({'error': 'No location found'}), 400

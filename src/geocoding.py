@@ -4,16 +4,16 @@ BASE_URL = "https://nominatim.openstreetmap.org/search"
 HEADERS = {'User-Agent': 'Distance Tree Model +github.com/tbrittain/distance-tree-model'}
 
 
-def geocode(**kwargs):
+def geocode(query=None, street=None, city=None, state=None, zipcode=None):
     """
     Geocode an address using the Nominatim API.
     https://nominatim.org/release-docs/develop/api/Search/#parameters
-    :param q: query string - overrides all other parameters
+
+    :param query: query string - overrides all other parameters
     :param street: street name
     :param city: city name
     :param state: state name
-    :param country: country name
-    :param postalcode: postal code
+    :param zipcode: zip code
     """
 
     params = {
@@ -23,12 +23,17 @@ def geocode(**kwargs):
         "limit": 1
     }
 
-    if "q" in kwargs:
-        params["q"] = kwargs["q"]
+    if query:
+        params["q"] = query
     else:
-        for key, value in kwargs.items():
-            if value:
-                params[key] = value
+        if street:
+            params["street"] = street
+        if city:
+            params["city"] = city
+        if state:
+            params["state"] = state
+        if zipcode:
+            params["postalcode"] = zipcode
 
     resp = requests.get(url=BASE_URL, params=params, headers=HEADERS)
     resp.raise_for_status()
@@ -36,29 +41,3 @@ def geocode(**kwargs):
         return resp.json()[0]
     else:
         return None
-
-
-def geocode_coords(**kwargs):
-    """
-    Geocode an address using the Nominatim API and only return the coordinates.
-    https://nominatim.org/release-docs/develop/api/Search/#parameters
-    :param q: query string - overrides all other parameters
-    :param street: street name
-    :param city: city name
-    :param state: state name
-    :param country: country name
-    :param postalcode: postal code
-    """
-    resp = geocode(**kwargs)
-    return float(resp["lat"]), float(resp["lon"])
-
-
-def get_location_from_geocode(geocode_json):
-    """
-    Get the location name from the geocode response.
-    :param geocode_json: geocode response
-    """
-
-
-if __name__ == '__main__':
-    print(geocode_coords(q="1600 Pennsylvania Ave NW, Washington, DC 20500"))
