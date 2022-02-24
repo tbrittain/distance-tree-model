@@ -1,6 +1,6 @@
 import kdtree
 from flask import Flask, jsonify, request
-from time import time, sleep
+from time import time
 
 from src.database import insert_location, create_database, get_locations, get_location_by_id, delete_location_by_id
 from src.geocoding import geocode
