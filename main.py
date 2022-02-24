@@ -21,7 +21,8 @@ def get_all_locations():
             'id': location.location_id,
             'lat': location.latitude,
             'lon': location.longitude,
-            'name': location.name
+            'name': location.name,
+            'description': location.description
         } for location in location_objects
     ])
     end = time()
@@ -52,6 +53,7 @@ def get_single_location(id):
             'lat': location.latitude,
             'lon': location.longitude,
             'name': location.name,
+            'description': location.description
         })
         end = time()
         diff = round((end - begin) * 1000, 5)
@@ -67,6 +69,7 @@ def add_location():
     city = request.args.get('city', type=str)
     state = request.args.get('state', type=str)
     zipcode = request.args.get('zipcode', type=str)
+    description = request.args.get('description', type=str)
 
     if not any([query, street, city, state, zipcode]):
         return jsonify({'error': 'No location/query specified'}), 400
@@ -83,7 +86,7 @@ def add_location():
     name = search_result['display_name']
     lat = float(search_result['lat'])
     lon = float(search_result['lon'])
-    location = Location(name=name, latitude=lat, longitude=lon)
+    location = Location(latitude=lat, longitude=lon, name=name, description=description)
 
     success = insert_location(location)
     if not success:
@@ -112,8 +115,9 @@ def add_location():
 def add_location_raw(latitude, longitude):
     global tree
     name = request.args.get('name', type=str)
+    description = request.args.get('description', type=str)
     begin = time()
-    location = Location(name=name, latitude=latitude, longitude=longitude)
+    location = Location(latitude=latitude, longitude=longitude, name=name, description=description)
 
     success = insert_location(location)
     if not success:
@@ -129,7 +133,8 @@ def add_location_raw(latitude, longitude):
             'id': location.location_id,
             'lat': location.latitude,
             'lon': location.longitude,
-            'name': location.name
+            'name': location.name,
+            'description': location.description
         }
     })
     end = time()
@@ -185,7 +190,7 @@ def get_k_nearest_neighbors():
     name = search_result['display_name']
     lat = float(search_result['lat'])
     lon = float(search_result['lon'])
-    location = Location(name=name, latitude=lat, longitude=lon)
+    location = Location(latitude=lat, longitude=lon, name=name)
 
     k = request.args.get('k', type=int)
     if not k:
@@ -203,7 +208,8 @@ def get_k_nearest_neighbors():
                         'id': neighbor[0].data.location_id,
                         'lat': neighbor[0].data.latitude,
                         'lon': neighbor[0].data.longitude,
-                        'name': neighbor[0].data.name
+                        'name': neighbor[0].data.name,
+                        'description': neighbor[0].data.description
                     },
                     'distance_miles': Location.distance(location, neighbor[0].data),
                     'distance_euclidean': neighbor[1]

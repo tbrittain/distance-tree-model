@@ -8,12 +8,14 @@ class Location(object):
     https://www.latlong.net/convert-address-to-lat-long.html
     """
 
-    def __init__(self, latitude: float, longitude: float, name: str = None, location_id: str = None):
+    def __init__(self, latitude: float, longitude: float, name: str = None,
+                 location_id: str = None, description: str = None):
         self.location_id = location_id if location_id else str(uuid4())
         self.latitude = latitude
         self.longitude = longitude
         self.coords = (self.latitude, self.longitude)
         self.name = name
+        self.description = description
 
     @staticmethod
     def decimal_to_dms(decimal: float, is_latitude=False) -> str:
