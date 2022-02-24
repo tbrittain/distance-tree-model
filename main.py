@@ -1,5 +1,6 @@
 import kdtree
 from flask import Flask, jsonify, request
+from time import time, sleep
 
 from src.database import insert_location, create_database, get_locations, get_location_by_id, delete_location_by_id
 from src.geocoding import geocode
@@ -13,8 +14,9 @@ tree = kdtree.create(locations, dimensions=2)
 
 @app.route('/', methods=['GET'])
 def get_all_locations():
+    begin = time()
     location_objects = get_locations()
-    return jsonify([
+    response = jsonify([
         {
             'id': location.location_id,
             'lat': location.latitude,
@@ -22,6 +24,10 @@ def get_all_locations():
             'name': location.name
         } for location in location_objects
     ])
+    end = time()
+    diff = round((end - begin) * 1000, 5)
+    response.headers['X-Execution-Time'] = f'{diff}ms'
+    return response
 
 
 @app.route('/tree-status', methods=['GET'])
@@ -36,16 +42,21 @@ def get_tree_stats():
 
 @app.route('/<id>', methods=['GET'])
 def get_single_location(id):
+    begin = time()
     location = get_location_by_id(id)
     if not location:
         return jsonify({'error': 'No location found'}), 404
     else:
-        return jsonify({
+        response = jsonify({
             'id': location.location_id,
             'lat': location.latitude,
             'lon': location.longitude,
             'name': location.name,
         })
+        end = time()
+        diff = round((end - begin) * 1000, 5)
+        response.headers['X-Execution-Time'] = f'{diff}ms'
+        return response
 
 
 @app.route('/location', methods=['POST'])
@@ -68,6 +79,7 @@ def add_location():
     if not search_result:
         return jsonify({'error': 'No location found'}), 400
 
+    begin = time()
     name = search_result['display_name']
     lat = float(search_result['lat'])
     lon = float(search_result['lon'])
@@ -81,7 +93,7 @@ def add_location():
     if not tree.is_balanced:
         tree = tree.rebalance()
 
-    return jsonify({
+    response = jsonify({
         'success': 'Location added',
         'location': {
             'id': location.location_id,
@@ -89,11 +101,46 @@ def add_location():
             'lon': location.longitude,
             'name': location.name
         }
-    }), 200
+    })
+    end = time()
+    diff = round((end - begin) * 1000, 5)
+    response.headers['X-Execution-Time'] = f'{diff}ms'
+    return response
+
+
+@app.route('/location/<float:latitude>/<float:longitude>', methods=['POST'])
+def add_location_raw(latitude, longitude):
+    global tree
+    name = request.args.get('name', type=str)
+    begin = time()
+    location = Location(name=name, latitude=latitude, longitude=longitude)
+
+    success = insert_location(location)
+    if not success:
+        return jsonify({'error': 'Could not add location'}), 500
+
+    tree.add(location)
+    if not tree.is_balanced:
+        tree = tree.rebalance()
+
+    response = jsonify({
+        'success': 'Location added',
+        'location': {
+            'id': location.location_id,
+            'lat': location.latitude,
+            'lon': location.longitude,
+            'name': location.name
+        }
+    })
+    end = time()
+    diff = round((end - begin) * 1000, 5)
+    response.headers['X-Execution-Time'] = f'{diff}ms'
+    return response
 
 
 @app.route('/location/<id>', methods=['DELETE'])
 def delete_location(id):
+    begin = time()
     global tree
     location = get_location_by_id(id)
     if not location:
@@ -107,7 +154,11 @@ def delete_location(id):
     if not tree.is_balanced:
         tree = tree.rebalance()
 
-    return jsonify({'success': 'Location deleted'}), 200
+    response = jsonify({'success': 'Location deleted'})
+    end = time()
+    diff = round((end - begin) * 1000, 5)
+    response.headers['X-Execution-Time'] = f'{diff}ms'
+    return response
 
 
 @app.route('/nearest', methods=['GET'])
@@ -130,6 +181,7 @@ def get_k_nearest_neighbors():
     if not search_result:
         return jsonify({'error': 'No location found'}), 400
 
+    begin = time()
     name = search_result['display_name']
     lat = float(search_result['lat'])
     lon = float(search_result['lon'])
@@ -143,7 +195,7 @@ def get_k_nearest_neighbors():
     if not neighbors:
         return jsonify({'error': 'No neighbors found'}), 404
     else:
-        return jsonify({
+        response = jsonify({
             'success': f'Found {len(neighbors)} nearest neighbors',
             'neighbors': [
                 {
@@ -162,8 +214,12 @@ def get_k_nearest_neighbors():
                 'lon': location.longitude,
                 'name': location.name
             }
-        }), 200
+        })
+        end = time()
+        diff = round((end - begin) * 1000, 5)
+        response.headers['X-Execution-Time'] = f'{diff}ms'
+        return response
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
