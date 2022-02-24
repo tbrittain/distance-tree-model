@@ -1,0 +1,518 @@
+[
+  {
+    "name": "One World Trade Center",
+    "latitude": 40.7129028,
+    "longitude": -74.0132028,
+    "description": "1,776 ft  - Completed in 2014 - On November 3, 2014, One World Trade Center became the tallest building in the Western Hemisphere. The 6th-tallest building in the world."
+  },
+  {
+    "name": "Central Park Tower",
+    "latitude": 40.7663,
+    "longitude": -73.981,
+    "description": "1,550 ft  - Completed in 2020 - Also known as the Nordstrom Tower. At 1,550 feet, the tower is the tallest residential building in the world both by roof height and architectural height. Construction was delayed in 2015 and resumed in 2017. Topped out in September 2019. It is the tallest building in America by roof height only."
+  },
+  {
+    "name": "Willis Tower",
+    "latitude": 41.8788389,
+    "longitude": -87.6360361,
+    "description": "1,451 ft  - Completed in 1974 - Formerly known, and still commonly referred to, as the Sears Tower. It was the tallest building in the world from 1974 until 1998. It is the third tallest building in the Western Hemisphere and the 23rd-tallest building in the world."
+  },
+  {
+    "name": "111 West 57th Street",
+    "latitude": 42.9553721,
+    "longitude": -75.58682,
+    "description": "1,428 ft  - Completed in 2020 - Also known as Steinway Tower. Is the world's most slender skyscraper. Topped out in September 2019."
+  },
+  {
+    "name": "One Vanderbilt",
+    "latitude": 40.753,
+    "longitude": -73.9785,
+    "description": "1,401 ft  - Completed in 2020 - Topped out in September 2019."
+  },
+  {
+    "name": "432 Park Avenue",
+    "latitude": 40.7612,
+    "longitude": -73.9715,
+    "description": "1,396 ft  - Completed in 2015 - Topped out in October 2014. 432 Park Avenue is the 28th-tallest building in the world and the tallest building in the world known only by its street address."
+  },
+  {
+    "name": "Trump International Hotel and Tower",
+    "latitude": 41.8888444,
+    "longitude": -87.6264389,
+    "description": "1,389 ft  - Completed in 2009 - 30th-tallest building in the world"
+  },
+  {
+    "name": "30 Hudson Yards",
+    "latitude": 40.753972,
+    "longitude": -74.00075,
+    "description": "1,270 ft  - Completed in 2019 - 42nd-tallest building in the world"
+  },
+  {
+    "name": "Empire State Building",
+    "latitude": 40.7484639,
+    "longitude": -73.985694,
+    "description": "1,250 ft  - Completed in 1931 - 47th-tallest building in the world; tallest building in the world from 1931 until 1972; tallest man-made structure in the world 1931\u20131967; first building in the world to contain over 100 floors."
+  },
+  {
+    "name": "Bank of America Tower",
+    "latitude": 40.7553778,
+    "longitude": -73.9844222,
+    "description": "1,200 ft  - Completed in 2009 - 8th-tallest building in New York City."
+  },
+  {
+    "name": "St Regis Chicago",
+    "latitude": 41.88722,
+    "longitude": -87.61722,
+    "description": "1,198 ft  - Completed in 2020 - Topped off April 26, 2019. Third-tallest building in Chicago and the tallest building in the world designed by a woman."
+  },
+  {
+    "name": "Aon Center",
+    "latitude": 41.8852194,
+    "longitude": -87.6215028,
+    "description": "1,136 ft  - Completed in 1973 - Formerly known as the Standard Oil Building."
+  },
+  {
+    "name": "John Hancock Center",
+    "latitude": 41.8987806,
+    "longitude": -87.6230361,
+    "description": "1,127 ft  - Completed in 1969 - Formerly known as the John Hancock Center: it is the first trussed-tube building in the world; contains some of the highest residential units in the world; tallest building built in the world in the 1960s, and the highest pinnacle height in the world at the time."
+  },
+  {
+    "name": "Comcast Technology Center",
+    "latitude": 39.9549,
+    "longitude": -75.1704,
+    "description": "1,121 ft  - Completed in 2018 - Tallest Building in Philadelphia and Pennsylvania. Tallest building outside New York City and Chicago. Topped out on November 27, 2017."
+  },
+  {
+    "name": "Wilshire Grand Center",
+    "latitude": 34.05,
+    "longitude": -118.2593,
+    "description": "1,100 ft  - Completed in 2017 - Tallest building in Los Angeles and California and tallest building west of the Mississippi River. Topped out on September 3, 2016."
+  },
+  {
+    "name": "3 World Trade Center",
+    "latitude": 40.7109222,
+    "longitude": -74.0116083,
+    "description": "1,079 ft  - Completed in 2018 - Topped out on June 23, 2016."
+  },
+  {
+    "name": "Salesforce Tower",
+    "latitude": 37.789944,
+    "longitude": -122.396917,
+    "description": "1,070 ft  - Completed in 2018 - Topped out on April 6, 2017. Tallest building in San Francisco and second tallest building in rooftop height west of Chicago. Second tallest building west of the Mississippi."
+  },
+  {
+    "name": "9 DeKalb Avenue",
+    "latitude": 42.9553721,
+    "longitude": -75.58682,
+    "description": "1,066 ft  - Completed in 2022 - Topped out in October 2021 to become the tallest building in Brooklyn, the tallest building in the Outer Boroughs, and the tallest building on Long Island."
+  },
+  {
+    "name": "53W53",
+    "latitude": 40.7616,
+    "longitude": -73.9784,
+    "description": "1,050 ft  - Completed in 2019 - Construction began in 2014."
+  },
+  {
+    "name": "Chrysler Building",
+    "latitude": 40.7515111,
+    "longitude": -73.9755111,
+    "description": "1,046 ft  - Completed in 1930 - Tallest man-made structure in the world from 1930 until 1931; First building to be more than 1,000 feet tall; tallest brick building in the world."
+  },
+  {
+    "name": "The New York Times Building",
+    "latitude": 40.7560472,
+    "longitude": -73.9900583,
+    "description": "1,046 ft  - Completed in 2007 - Also known as the Times Tower. The first high-rise building in the United States to have a ceramic sunscreen curtain wall."
+  },
+  {
+    "name": "The Spiral",
+    "latitude": 40.754801,
+    "longitude": -73.999835,
+    "description": "1,041 ft  - Completed in 2023 - 34th Street and 10th Avenue, at the north end of the High Line. Almost every floor will have its own outdoor terrace."
+  },
+  {
+    "name": "Bank of America Plaza",
+    "latitude": 33.770806,
+    "longitude": -84.3863194,
+    "description": "1,023 ft  - Completed in 1992 - Tallest building in Atlanta and the Southern United States; tallest building located in a state capital."
+  },
+  {
+    "name": "U.S. Bank Tower",
+    "latitude": 34.0510694,
+    "longitude": -118.2544528,
+    "description": "1,018 ft  - Completed in 1989 - Second tallest building in Los Angeles as well as third tallest building in California. Tallest building west of the Mississippi River from 1989 to 2017. It was previously the tallest building in the world with a helipad on the roof. It is now third on that list behind China World Trade Center Tower III, and Guangzhou International Finance Center."
+  },
+  {
+    "name": "50 Hudson Yards",
+    "latitude": 40.754578,
+    "longitude": -74.000119,
+    "description": "1,011 ft  - Completed in 2022"
+  },
+  {
+    "name": "35 Hudson Yards",
+    "latitude": 40.75455,
+    "longitude": -74.0024,
+    "description": "1,009 ft  - Completed in 2019"
+  },
+  {
+    "name": "Franklin Center",
+    "latitude": 41.8803306,
+    "longitude": -87.6347861,
+    "description": "1,007 ft  - Completed in 1989 - Originally known as the AT&T Corporate Center at its inauguration in 1989, the name was changed after Tishman Speyer acquired the building and the adjacent USG complex in 2004."
+  },
+  {
+    "name": "One57",
+    "latitude": 40.7652028,
+    "longitude": -73.97917,
+    "description": "1,005 ft  - Completed in 2014 - Tallest mixed-use (residential and hotel) skyscraper in New York City"
+  },
+  {
+    "name": "JPMorgan Chase Tower",
+    "latitude": 29.7595833,
+    "longitude": -95.3634556,
+    "description": "1,002 ft  - Completed in 1982 - Tallest building in Houston and Texas; tallest 5-sided building in the world Tallest building west of the Mississippi River until 1989."
+  },
+  {
+    "name": "Two Prudential Plaza",
+    "latitude": 41.8853972,
+    "longitude": -87.6227139,
+    "description": "995 ft  - Completed in 1990"
+  },
+  {
+    "name": "1 Manhattan West",
+    "latitude": 40.7519,
+    "longitude": -73.9979,
+    "description": "995 ft  - Completed in 2019"
+  },
+  {
+    "name": "Wells Fargo Plaza",
+    "latitude": 29.7583806,
+    "longitude": -95.3682806,
+    "description": "992 ft  - Completed in 1983"
+  },
+  {
+    "name": "4 World Trade Center",
+    "latitude": 40.7103778,
+    "longitude": -74.0119111,
+    "description": "977 ft  - Completed in 2013 - Also known as 150 Greenwich Street"
+  },
+  {
+    "name": "Comcast Center",
+    "latitude": 39.9547806,
+    "longitude": -75.1685361,
+    "description": "975 ft  - Completed in 2008 - Second tallest building in Philadelphia; second tallest building in Pennsylvania"
+  },
+  {
+    "name": "One Chicago East Tower",
+    "latitude": 41.896167,
+    "longitude": -87.628778,
+    "description": "973 ft  - Completed in 2022 - Topped out in July 2021."
+  },
+  {
+    "name": "311 South Wacker Drive",
+    "latitude": 41.8774389,
+    "longitude": -87.6355778,
+    "description": "961 ft  - Completed in 1990 - Tallest reinforced concrete building in the United States."
+  },
+  {
+    "name": "220 Central Park South",
+    "latitude": 40.7671,
+    "longitude": -73.9802,
+    "description": "953 ft  - Completed in 2019"
+  },
+  {
+    "name": "70 Pine Street",
+    "latitude": 40.706361,
+    "longitude": -74.0074083,
+    "description": "952 ft  - Completed in 1932 - Currently being converted into a residential skyscraper with 644 rental residences and 132 hotel rooms"
+  },
+  {
+    "name": "Key Tower",
+    "latitude": 41.5008917,
+    "longitude": -81.69365,
+    "description": "947 ft  - Completed in 1991 - Tallest building in Cleveland and Ohio; tallest building in the Midwestern United States outside of Chicago; tallest building in the United States between New York City and Chicago until the 2007 completion of Comcast Center"
+  },
+  {
+    "name": "One Liberty Place",
+    "latitude": 39.9553139,
+    "longitude": -75.1690583,
+    "description": "945 ft  - Completed in 1987 - First building in Philadelphia constructed taller than Philadelphia City Hall, completed 86 years earlier."
+  },
+  {
+    "name": "Columbia Center",
+    "latitude": 47.6047028,
+    "longitude": -122.3306139,
+    "description": "937 ft  - Completed in 1985 - Tallest building in Seattle and Washington; fourth-tallest building on the West Coast. Tallest building west of the Mississippi River in terms of number of floors. Tallest observation deck on the West Coast and west of the Mississippi."
+  },
+  {
+    "name": "Four Seasons Hotel New York Downtown",
+    "latitude": 40.7131667,
+    "longitude": -74.0093111,
+    "description": "937 ft  - Completed in 2016 - Topped out on March 31, 2015."
+  },
+  {
+    "name": "2 Manhattan West",
+    "latitude": 40.75222,
+    "longitude": -73.99806,
+    "description": "935 ft  - Completed in 2022 - Construction began after law firm Cravath, Swaine & Moore signed a lease for 13 floors in October 2019. Topped out in November 2021."
+  },
+  {
+    "name": "40 Wall Street",
+    "latitude": 40.7069583,
+    "longitude": -74.0096472,
+    "description": "927 ft  - Completed in 1930 - Also known as the Trump Building, it was the tallest building in the world for two months in 1930 until the completion of the Chrysler Building."
+  },
+  {
+    "name": "Bank of America Plaza",
+    "latitude": 32.78,
+    "longitude": -96.8040194,
+    "description": "921 ft  - Completed in 1985 - Tallest building in Dallas"
+  },
+  {
+    "name": "Citigroup Center",
+    "latitude": 40.7583278,
+    "longitude": -73.9699972,
+    "description": "915 ft  - Completed in 1977"
+  },
+  {
+    "name": "15 Hudson Yards",
+    "latitude": 40.7546,
+    "longitude": -74.003,
+    "description": "912 ft  - Completed in 2019 - Topped out in February 2018."
+  },
+  {
+    "name": "125 Greenwich Street",
+    "latitude": 40.709167,
+    "longitude": -74.012778,
+    "description": "912 ft  - Completed in 2020 - Revised down from earlier projected height. Topped out in March 2019."
+  },
+  {
+    "name": "Williams Tower",
+    "latitude": 29.7371361,
+    "longitude": -95.461278,
+    "description": "901 ft  - Completed in 1983 - Known as the Transco Tower from 1983 to 1999."
+  },
+  {
+    "name": "99 Hudson Street",
+    "latitude": 40.71528,
+    "longitude": -74.035,
+    "description": "900 ft  - Completed in 2019 - Tallest building in New Jersey since 2019."
+  },
+  {
+    "name": "425 Park Avenue",
+    "latitude": 40.760542,
+    "longitude": -73.971157,
+    "description": "897 ft  - Completed in 2020 - Topped out in December 2018."
+  },
+  {
+    "name": "NEMA Chicago",
+    "latitude": 41.866976,
+    "longitude": -87.623083,
+    "description": "896 ft  - Completed in 2019"
+  },
+  {
+    "name": "Renaissance Tower",
+    "latitude": 32.7811444,
+    "longitude": -96.8018556,
+    "description": "886 ft  - Completed in 1974 - Originally constructed at a height of 710 feet (216 m); rooftop spires were added in 1987, increasing the building's structural height to 886 feet ."
+  },
+  {
+    "name": "10 Hudson Yards",
+    "latitude": 40.7525,
+    "longitude": -74.00105,
+    "description": "878 ft  - Completed in 2016 - Topped out in October 2015."
+  },
+  {
+    "name": "Truist Plaza",
+    "latitude": 33.7626472,
+    "longitude": -84.3865222,
+    "description": "871 ft  - Completed in 1992"
+  },
+  {
+    "name": "Bank of America Corporate Center",
+    "latitude": 35.2271917,
+    "longitude": -80.8422889,
+    "description": "871 ft  - Completed in 1992 - Tallest building in Charlotte and the Carolinas; Tallest building in the Southern United States outside of Atlanta or Texas."
+  },
+  {
+    "name": "8 Spruce Street",
+    "latitude": 40.71083,
+    "longitude": -74.00556,
+    "description": "870 ft  - Completed in 2011 - Also known as Beekman Tower and New York by Gehry."
+  },
+  {
+    "name": "900 North Michigan",
+    "latitude": 41.899625,
+    "longitude": -87.62485,
+    "description": "869 ft  - Completed in 1989"
+  },
+  {
+    "name": "Panorama Tower",
+    "latitude": 25.76335,
+    "longitude": -80.19134,
+    "description": "868 ft  - Completed in 2017 - Tallest building in Miami and the state of Florida."
+  },
+  {
+    "name": "Trump World Tower",
+    "latitude": 40.7524944,
+    "longitude": -73.9679111,
+    "description": "861 ft  - Completed in 2001 - Tallest all residential building in the world from 2001 until 2002"
+  },
+  {
+    "name": "Water Tower Place",
+    "latitude": 41.89795,
+    "longitude": -87.6230167,
+    "description": "859 ft  - Completed in 1976"
+  },
+  {
+    "name": "Aqua",
+    "latitude": 41.8863917,
+    "longitude": -87.6200333,
+    "description": "859 ft  - Completed in 2009 - Formerly tallest building in the world designed by a woman."
+  },
+  {
+    "name": "Aon Center",
+    "latitude": 34.0492278,
+    "longitude": -118.2569639,
+    "description": "858 ft  - Completed in 1973 - Tallest building in the United States west of the Mississippi River from 1973 until 1982"
+  },
+  {
+    "name": "Transamerica Pyramid",
+    "latitude": 37.795111,
+    "longitude": -122.4027806,
+    "description": "853 ft  - Completed in 1972 - 2nd-tallest building in San Francisco; tallest building in the U.S. west of the Mississippi River from 1972 until 1974"
+  },
+  {
+    "name": "30 Rockefeller Plaza",
+    "latitude": 40.7589194,
+    "longitude": -73.9793472,
+    "description": "850 ft  - Completed in 1933"
+  },
+  {
+    "name": "Chase Tower",
+    "latitude": 41.8815528,
+    "longitude": -87.6301611,
+    "description": "850 ft  - Completed in 1969"
+  },
+  {
+    "name": "Two Liberty Place",
+    "latitude": 39.9516861,
+    "longitude": -75.1674333,
+    "description": "848 ft  - Completed in 1990"
+  },
+  {
+    "name": "One Manhattan Square",
+    "latitude": 40.710394,
+    "longitude": -73.991388,
+    "description": "847 ft  - Completed in 2019"
+  },
+  {
+    "name": "Rainier Square Tower",
+    "latitude": 47.5128279,
+    "longitude": -119.9510179,
+    "description": "847 ft  - Completed in 2020 - Proposed by Urban Visions and designed by NBBJ. Approved in 2015."
+  },
+  {
+    "name": "Sutton 58",
+    "latitude": 42.9553721,
+    "longitude": -75.58682,
+    "description": "847 ft  - Completed in 2021 - Residential tower rising in Sutton Place, also known as 3 Sutton Place."
+  },
+  {
+    "name": "Park Tower",
+    "latitude": 41.8969972,
+    "longitude": -87.6251556,
+    "description": "844 ft  - Completed in 2000"
+  },
+  {
+    "name": "Devon Energy Center",
+    "latitude": 35.4666722,
+    "longitude": -97.5176306,
+    "description": "844 ft  - Completed in 2012 - Tallest building in Oklahoma City; tallest building in Oklahoma; tallest building in the \"Plains States\""
+  },
+  {
+    "name": "One Bennett Park",
+    "latitude": 41.8969972,
+    "longitude": -87.6251556,
+    "description": "844 ft  - Completed in 2019"
+  },
+  {
+    "name": "U.S. Steel Tower",
+    "latitude": 40.441278,
+    "longitude": -79.9946639,
+    "description": "841 ft  - Completed in 1971 - Tallest building in Pittsburgh; largest roof in the world at its height or taller"
+  },
+  {
+    "name": "56 Leonard Street",
+    "latitude": 40.7178028,
+    "longitude": -74.0066167,
+    "description": "821 ft  - Completed in 2016 - Topped out in July 2015."
+  },
+  {
+    "name": "One Atlantic Center",
+    "latitude": 33.7869806,
+    "longitude": -84.3873972,
+    "description": "820 ft  - Completed in 1987 - Also known as the IBM Tower."
+  },
+  {
+    "name": "The Legacy at Millennium Park",
+    "latitude": 41.881361,
+    "longitude": -87.6256972,
+    "description": "818 ft  - Completed in 2009"
+  },
+  {
+    "name": "110 North Wacker",
+    "latitude": 41.883722,
+    "longitude": -87.637417,
+    "description": "817 ft  - Completed in 2020"
+  },
+  {
+    "name": "Aston Martin Residences",
+    "latitude": 25.77077,
+    "longitude": -80.18785,
+    "description": "817 ft  - Completed in 2022 - Residential building in Miami under the Aston Martin brand name."
+  },
+  {
+    "name": "CitySpire Center",
+    "latitude": 40.7641583,
+    "longitude": -73.9797528,
+    "description": "814 ft  - Completed in 1987"
+  },
+  {
+    "name": "28 Liberty Street",
+    "latitude": 40.7078778,
+    "longitude": -74.0088361,
+    "description": "813 ft  - Completed in 1961 - Known until sale in 2015 as One Chase Manhattan Plaza"
+  },
+  {
+    "name": "Salesforce Tower",
+    "latitude": 39.7696083,
+    "longitude": -86.157125,
+    "description": "811 ft  - Completed in 1990 - Tallest building in Indianapolis; tallest building in the Midwest outside of Chicago and Cleveland"
+  },
+  {
+    "name": "4 Times Square",
+    "latitude": 40.7559361,
+    "longitude": -73.985806,
+    "description": "809 ft  - Completed in 1999 - Formerly known as the Cond\u00e9 Nast Building"
+  },
+  {
+    "name": "MetLife Building",
+    "latitude": 40.7534583,
+    "longitude": -73.976525,
+    "description": "808 ft  - Completed in 1963 - Formerly known as the Pan Am Building"
+  },
+  {
+    "name": "731 Lexington Avenue",
+    "latitude": 40.7616833,
+    "longitude": -73.968083,
+    "description": "806 ft  - Completed in 2005 - Also known as Bloomberg Tower."
+  },
+  {
+    "name": "181 Fremont",
+    "latitude": 37.7897,
+    "longitude": -122.39535,
+    "description": "802 ft  - Completed in 2017 - 2nd-tallest mixed-use residential building west of the Mississippi River."
+  }
+]

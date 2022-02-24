@@ -2,7 +2,8 @@ import kdtree
 from flask import Flask, jsonify, request
 from time import time
 
-from src.database import insert_location, create_database, get_locations, get_location_by_id, delete_location_by_id
+from src.database import insert_location, create_database, get_locations, get_location_by_id, delete_location_by_id, \
+    seed_database_building_data
 from src.geocoding import geocode
 from src.location import Location
 
@@ -111,13 +112,13 @@ def add_location():
     return response
 
 
-@app.route('/location/<float:latitude>/<float:longitude>', methods=['POST'])
+@app.route('/location/<latitude>/<longitude>', methods=['POST'])
 def add_location_raw(latitude, longitude):
     global tree
     name = request.args.get('name', type=str)
     description = request.args.get('description', type=str)
     begin = time()
-    location = Location(latitude=latitude, longitude=longitude, name=name, description=description)
+    location = Location(latitude=float(latitude), longitude=float(longitude), name=name, description=description)
 
     success = insert_location(location)
     if not success:
@@ -225,6 +226,15 @@ def get_k_nearest_neighbors():
         diff = round((end - begin) * 1000, 5)
         response.headers['X-Execution-Time'] = f'{diff}ms'
         return response
+
+
+@app.route('/seed', methods=['POST'])
+def seed_database():
+    success = seed_database_building_data()
+    if not success:
+        return jsonify({'error': 'Could not seed database'}), 500
+    else:
+        return jsonify({'success': 'Database seeded. Please restart server.'})
 
 
 if __name__ == '__main__':

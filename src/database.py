@@ -1,3 +1,5 @@
+import json
+from uuid import uuid4
 from sqlalchemy import MetaData, Table, Column, String, create_engine, Numeric, DateTime
 from datetime import datetime
 from .location import Location
@@ -44,8 +46,8 @@ def get_locations() -> list:
                 longitude=row[3],
                 name=row[1],
                 location_id=row[0],
-                description=row[5])
-            for row in result
+                description=row[5]
+            )for row in result
         ]
 
 
@@ -53,7 +55,13 @@ def get_location_by_id(location_id: str) -> Location:
     with sql_engine.connect() as connection:
         result = connection.execute('SELECT * FROM locations WHERE id = ?', location_id).fetchone()
         if result is not None:
-            return Location(latitude=result[2], longitude=result[3], name=result[1], location_id=result[0])
+            return Location(
+                latitude=result[2],
+                longitude=result[3],
+                name=result[1],
+                location_id=result[0],
+                description=result[5]
+            )
         else:
             return None
 
@@ -63,3 +71,24 @@ def delete_location_by_id(location_id: str) -> bool:
         execution_result = connection.execute('DELETE FROM locations WHERE id = ?', location_id)
 
     return execution_result.rowcount > 0
+
+
+def seed_database_building_data():
+    with open('./seed_data/buildings.json', 'r') as file:
+        seed_data = json.load(file)
+
+    with sql_engine.connect() as connection:
+        for building in seed_data:
+            connection.execute(
+                'INSERT INTO locations (id, name, description, latitude, longitude, added_at) VALUES (?, ?, ?, ?, ?, ?)',
+                (
+                    str(uuid4()),
+                    building['name'],
+                    building['description'],
+                    building['latitude'],
+                    building['longitude'],
+                    datetime.now()
+                )
+            )
+
+    return True
